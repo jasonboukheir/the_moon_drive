@@ -1,0 +1,45 @@
+<h1>Listing Auctions</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal @socket, TheMoonDriveWeb.AuctionLive.FormComponent,
+    id: @auction.id || :new,
+    title: @page_title,
+    action: @live_action,
+    auction: @auction,
+    return_to: Routes.auction_index_path(@socket, :index) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seller</th>
+      <th>Buyer</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Posted at</th>
+      <th>Ends at</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="auctions">
+    <%= for auction <- @auctions do %>
+      <tr id="auction-<%= auction.id %>">
+        <td><%= auction.seller %></td>
+        <td><%= auction.buyer %></td>
+        <td><%= auction.image %></td>
+        <td><%= auction.description %></td>
+        <td><%= auction.posted_at %></td>
+        <td><%= auction.ends_at %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.auction_show_path(@socket, :show, auction) %></span>
+          <span><%= live_patch "Edit", to: Routes.auction_index_path(@socket, :edit, auction) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: auction.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Auction", to: Routes.auction_index_path(@socket, :new) %></span>

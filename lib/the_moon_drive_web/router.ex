@@ -18,6 +18,13 @@ defmodule TheMoonDriveWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+
+    live "/auctions", AuctionLive.Index, :index
+    live "/auctions/new", AuctionLive.Index, :new
+    live "/auctions/:id/edit", AuctionLive.Index, :edit
+
+    live "/auctions/:id", AuctionLive.Show, :show
+    live "/auctions/:id/show/edit", AuctionLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

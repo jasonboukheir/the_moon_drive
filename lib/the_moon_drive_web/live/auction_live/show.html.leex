@@ -1,0 +1,47 @@
+<h1>Show Auction</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, TheMoonDriveWeb.AuctionLive.FormComponent,
+    id: @auction.id,
+    title: @page_title,
+    action: @live_action,
+    auction: @auction,
+    return_to: Routes.auction_show_path(@socket, :show, @auction) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Seller:</strong>
+    <%= @auction.seller %>
+  </li>
+
+  <li>
+    <strong>Buyer:</strong>
+    <%= @auction.buyer %>
+  </li>
+
+  <li>
+    <strong>Image:</strong>
+    <%= @auction.image %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @auction.description %>
+  </li>
+
+  <li>
+    <strong>Posted at:</strong>
+    <%= @auction.posted_at %>
+  </li>
+
+  <li>
+    <strong>Ends at:</strong>
+    <%= @auction.ends_at %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.auction_show_path(@socket, :edit, @auction), class: "button" %></span>
+<span><%= live_redirect "Back", to: Routes.auction_index_path(@socket, :index) %></span>
