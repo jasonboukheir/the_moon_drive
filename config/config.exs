@@ -12,7 +12,7 @@ config :the_moon_drive,
 
 # Configures the endpoint
 config :the_moon_drive, TheMoonDriveWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   secret_key_base: "rkZxqbu9QuHwJruX51OGOh2bcqc8K1X+Np2QT1zvqEzvbklGJfNEZVsFhFZ/7sL1",
   render_errors: [view: TheMoonDriveWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: TheMoonDrive.PubSub,
