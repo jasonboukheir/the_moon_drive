@@ -1,13 +1,13 @@
 defmodule TheMoonDrive.AuctionHouse.Auction do
   use Ecto.Schema
   import Ecto.Changeset
+  @timestamps_opts [type: :utc_datetime]
 
   schema "auctions" do
     field :buyer, :string
     field :description, :string
     field :ends_at, :utc_datetime
     field :image, :binary
-    field :posted_at, :utc_datetime
     field :seller, :string
 
     timestamps()

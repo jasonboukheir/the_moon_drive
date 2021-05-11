@@ -6,9 +6,9 @@ defmodule TheMoonDrive.AuctionHouseTest do
   describe "auctions" do
     alias TheMoonDrive.AuctionHouse.Auction
 
-    @valid_attrs %{buyer: "some buyer", description: "some description", ends_at: "2010-04-17T14:00:00Z", image: "some image", posted_at: "2010-04-17T14:00:00Z", seller: "some seller"}
-    @update_attrs %{buyer: "some updated buyer", description: "some updated description", ends_at: "2011-05-18T15:01:01Z", image: "some updated image", posted_at: "2011-05-18T15:01:01Z", seller: "some updated seller"}
-    @invalid_attrs %{buyer: nil, description: nil, ends_at: nil, image: nil, posted_at: nil, seller: nil}
+    @valid_attrs %{buyer: "some buyer", description: "some description", ends_at: "2010-04-17T14:00:00Z", image: "some image", seller: "some seller"}
+    @update_attrs %{buyer: "some updated buyer", description: "some updated description", ends_at: "2011-05-18T15:01:01Z", image: "some updated image", seller: "some updated seller"}
+    @invalid_attrs %{buyer: nil, description: nil, ends_at: nil, image: nil, seller: nil}
 
     def auction_fixture(attrs \\ %{}) do
       {:ok, auction} =
@@ -35,7 +35,6 @@ defmodule TheMoonDrive.AuctionHouseTest do
       assert auction.description == "some description"
       assert auction.ends_at == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
       assert auction.image == "some image"
-      assert auction.posted_at == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
       assert auction.seller == "some seller"
     end
 
@@ -50,7 +49,6 @@ defmodule TheMoonDrive.AuctionHouseTest do
       assert auction.description == "some updated description"
       assert auction.ends_at == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
       assert auction.image == "some updated image"
-      assert auction.posted_at == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
       assert auction.seller == "some updated seller"
     end
 

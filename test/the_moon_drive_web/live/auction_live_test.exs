@@ -5,9 +5,9 @@ defmodule TheMoonDriveWeb.AuctionLiveTest do
 
   alias TheMoonDrive.AuctionHouse
 
-  @create_attrs %{buyer: "some buyer", description: "some description", ends_at: "2010-04-17T14:00:00Z", image: "some image", posted_at: "2010-04-17T14:00:00Z", seller: "some seller"}
-  @update_attrs %{buyer: "some updated buyer", description: "some updated description", ends_at: "2011-05-18T15:01:01Z", image: "some updated image", posted_at: "2011-05-18T15:01:01Z", seller: "some updated seller"}
-  @invalid_attrs %{buyer: nil, description: nil, ends_at: nil, image: nil, posted_at: nil, seller: nil}
+  @create_attrs %{buyer: "some buyer", description: "some description", ends_at: "2010-04-17T14:00:00Z", image: "some image", seller: "some seller"}
+  @update_attrs %{buyer: "some updated buyer", description: "some updated description", ends_at: "2011-05-18T15:01:01Z", image: "some updated image", seller: "some updated seller"}
+  @invalid_attrs %{buyer: nil, description: nil, ends_at: nil, image: nil, seller: nil}
 
   defp fixture(:auction) do
     {:ok, auction} = AuctionHouse.create_auction(@create_attrs)
