@@ -13,7 +13,6 @@
   <thead>
     <tr>
       <th>Seller</th>
-      <th>Buyer</th>
       <th>Image</th>
       <th>Description</th>
       <th>Posted at</th>
@@ -26,9 +25,9 @@
     <%= for auction <- @auctions do %>
       <tr id="auction-<%= auction.id %>">
         <td><%= auction.seller %></td>
-        <td><%= auction.buyer %></td>
         <td><%= auction.image %></td>
         <td><%= auction.description %></td>
+        <td><%= auction.inserted_at %></td>
         <td><%= auction.ends_at %></td>
 
         <td>

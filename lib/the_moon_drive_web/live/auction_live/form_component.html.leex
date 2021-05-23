@@ -6,6 +6,10 @@
   phx_change: "validate",
   phx_submit: "save" %>
 
+  <%= label f, :seller %>
+  <%= text_input f, :seller %>
+  <%= error_tag f, :seller %>
+
   <%= label f, :image %>
   <%= text_input f, :image %>
   <%= error_tag f, :image %>
